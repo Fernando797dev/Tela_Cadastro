@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="330,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="330,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Height="147" Margin="253,-20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="36"><Run Text="&#x9;"/><LineBreak/><Run Text="TELA DE LOGIN"/><LineBreak/><Run/></TextBlock>
+        <Button Content="CADASTRAR" HorizontalAlignment="Left" Margin="289,354,0,0" VerticalAlignment="Top"/>
+        <Button Content="LOGIN" HorizontalAlignment="Left" Margin="422,354,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098"/>
+
+
+    </Grid>
+</Window>
