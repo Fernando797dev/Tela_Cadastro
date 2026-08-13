@@ -6,14 +6,19 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="330,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="330,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
-        <TextBlock HorizontalAlignment="Left" Height="147" Margin="253,-20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="36"><Run Text="&#x9;"/><LineBreak/><Run Text="TELA DE LOGIN"/><LineBreak/><Run/></TextBlock>
-        <Button Content="CADASTRAR" HorizontalAlignment="Left" Margin="289,354,0,0" VerticalAlignment="Top"/>
-        <Button Content="LOGIN" HorizontalAlignment="Left" Margin="422,354,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098"/>
+    <Grid x:Name="cor_fundo">
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="302,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="digita_usuario" HorizontalAlignment="Left" Height="23" Margin="330,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" TextChanged="TextBox_TextChanged_1"/>
+        <TextBlock Height="147" Margin="239,25,283,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Tw Cen MT" TextAlignment="Center"><Run Text="&#x9;"/><LineBreak/><Run Text="TELA DE LOGIN"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="btn_login" Content="LOGIN" HorizontalAlignment="Left" Margin="312,386,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098" Width="44" FontFamily="Times New Roman" Click="btn_login_Click"/>
+        <PasswordBox x:Name="digita_senha" HorizontalAlignment="Left" Height="24" Margin="330,260,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBlock x:Name="email" HorizontalAlignment="Left" Height="39" Margin="312,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="Email"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="digita_email" HorizontalAlignment="Left" Height="23" Margin="330,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" TextChanged="TextBox_TextChanged_1"/>
+        <Button x:Name="btn_login_cadastro" Content="CADASTRO" HorizontalAlignment="Left" Margin="390,386,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098" Width="73" FontFamily="Times New Roman" Click="btn_login_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="302,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" TextAlignment="Center"><Run Text="&#x9;"/><LineBreak/><Run Text="CONFIRMAR SENHA"/><LineBreak/><Run/></TextBlock>
+        <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="330,340,0,0" VerticalAlignment="Top" Width="92"/>
 
 
     </Grid>

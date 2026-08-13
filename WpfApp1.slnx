@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="WebApplication1/WebApplication1.csproj" Id="fe2cfa2e-66ab-439c-8601-7908e7c39408" />
   <Project Path="WpfApp1/WpfApp1.csproj" />
 </Solution>
