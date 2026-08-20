@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace WpfApp1
 {
@@ -109,10 +110,8 @@ namespace WpfApp1
         {
             LoginWindow1 telaLogin = new LoginWindow1();
 
-            // 2. Mostra a tela de login para o usuário
             telaLogin.Show();
 
-            // 3. Fecha a tela de cadastro atual para não ficar acumulando janelas abertas
             this.Close();
         }
 
@@ -162,15 +161,16 @@ namespace WpfApp1
                 {
                     using (MySqlConnection conexao = new MySqlConnection(connectionString))
                     {
+                       
                         conexao.Open();
-
+                        string senhaCriptografada = BCryptNet.HashPassword(senha);
                         string query = "INSERT INTO usuarios (email, usuario, senha) VALUES (@email, @usuario, @senha)";
 
                         using (MySqlCommand comando = new MySqlCommand(query, conexao))
                         {
                             comando.Parameters.AddWithValue("@email", email);
                             comando.Parameters.AddWithValue("@usuario", usuario);
-                            comando.Parameters.AddWithValue("@senha", senha);
+                            comando.Parameters.AddWithValue("@senha", senhaCriptografada);
 
                             comando.ExecuteNonQuery();
                         }

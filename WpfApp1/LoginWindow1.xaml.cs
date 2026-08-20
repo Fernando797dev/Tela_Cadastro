@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System;
+using MySql.Data.MySqlClient;
 
 namespace WpfApp1
 {
@@ -18,6 +20,8 @@ namespace WpfApp1
     /// </summary>
     public partial class LoginWindow1 : Window
     {
+        public string connectionString = "Server=localhost;Database=login;Uid=root;Pwd=;";
+
         public LoginWindow1()
         {
             InitializeComponent();
@@ -27,47 +31,51 @@ namespace WpfApp1
 
         private void btn_login_cadastro_Click(object sender, RoutedEventArgs e)
         {
-            string usuarioDigitado;
-            string email;
-            string senha;
 
 
-            if (digita_usuario.Text.Length < 3)
+            string senha = digita_senha.Password.Trim();
+            string usuario = digita_usuario.Text.Trim();
+
+            string Bcd = "SELECT COUNT(*) FROM usuarios WHERE usuario = @usuario AND senha = @senha";
+
+            using(MySqlConnection connection =new MySqlConnection(connectionString))
             {
-                MessageBox.Show("Usuário cadastrado errado, usuario deve conter 3 ou mais caracteres");
-                digita_usuario.Text = null;
+
+                connection.Open();
+
+                using(MySqlCommand cmd= new MySqlCommand(Bcd, connection))
+                {
+
+                    cmd.Parameters.AddWithValue("@usuario", digita_usuario.Text);
+                    cmd.Parameters.AddWithValue("@senha", digita_senha.Password);
+
+                    int resultado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (resultado > 0)
+                    {
+
+                        MessageBox.Show("Usuário logado com sucesso");
+                        digita_usuario.Text = null;
+                        digita_senha.Password = null;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário ou senha não encontrados, tente denovo mais tarde");
+                        digita_usuario.Text = null;
+                        digita_senha.Password = null;
+
+                    }
+                }
+
             }
 
 
-            if (!new EmailAddressAttribute().IsValid(digita_email.Text))
-            {
-                MessageBox.Show("Email digitado errado, digite um email valido");
-                digita_email.Text = null;
-            }
 
+        }
 
-            if (digita_confirmar_senha.Password.Length < 8)
-            {
-                MessageBox.Show("Senha digitada errado, senha deve conter 8 ou mais caracteres");
-                digita_senha.Password = null;
-            }
-
-            if (digita_confirmar_senha.Password != digita_senha.Password)
-            {
-                MessageBox.Show("As senhas não coincidem");
-                digita_confirmar_senha.Password = null;
-            }
-
-            else
-            {
-
-                usuarioDigitado = digita_usuario.Text;
-                senha = digita_senha.Password;
-                email = digita_email.Text;
-                MessageBox.Show($"Cadastro realizado com sucesso! \n\nUsuário: {usuarioDigitado} \nEmail: {email} \nSenha: {senha}");
-
-            }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

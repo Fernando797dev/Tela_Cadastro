@@ -11,12 +11,10 @@
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
         <TextBlock Height="147" Margin="215,20,263,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Tw Cen MT" TextAlignment="Center" FontStyle="Italic"><Run Language="pt-br"/><LineBreak/><Run Language="pt-br" Text="TELA DE LOGIN"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_senha" HorizontalAlignment="Left" Height="24" Margin="330,260,0,0" VerticalAlignment="Top" Width="92"/>
-        <TextBlock x:Name="email" HorizontalAlignment="Left" Height="39" Margin="312,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="Email"/><LineBreak/><Run/></TextBlock>
         <Button x:Name="btn_login_cadastro" Content="ENTRAR" HorizontalAlignment="Left" Margin="340,384,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098" Width="72" FontFamily="Times New Roman" Click="btn_login_cadastro_Click" Background="#FF67FF01"/>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="302,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" TextAlignment="Center"><Run Text="&#x9;"/><LineBreak/><Run Text="CONFIRMAR SENHA"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="330,340,0,0" VerticalAlignment="Top" Width="92"/>
-        <TextBox x:Name="digita_email" HorizontalAlignment="Left" Height="23" Margin="330,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
         <TextBox x:Name="digita_usuario" HorizontalAlignment="Left" Height="23" Margin="330,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
 
     </Grid>
