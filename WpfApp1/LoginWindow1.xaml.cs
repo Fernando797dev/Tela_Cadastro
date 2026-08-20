@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System;
 using MySql.Data.MySqlClient;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace WpfApp1
 {
@@ -51,6 +52,15 @@ namespace WpfApp1
 
                     int resultado = Convert.ToInt32(cmd.ExecuteScalar());
 
+                    if (reader.Read()) 
+                    { 
+                    
+                    string hashBanco = ReaderWriterLock["senha"].ToString();
+                    BCryptNet.GenerateSalt();
+                    if(BCryptNet.Verify(senha, hashBanco))
+                    }
+
+                    
                     if (resultado > 0)
                     {
 
