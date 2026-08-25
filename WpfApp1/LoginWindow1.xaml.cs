@@ -32,61 +32,74 @@ namespace WpfApp1
 
         private void btn_login_cadastro_Click(object sender, RoutedEventArgs e)
         {
-
-
-            string senha = digita_senha.Password.Trim();
             string usuario = digita_usuario.Text.Trim();
+            string senha = digita_senha.Password.Trim();
 
-            string Bcd = "SELECT COUNT(*) FROM usuarios WHERE usuario = @usuario AND senha = @senha";
-
-            using(MySqlConnection connection =new MySqlConnection(connectionString))
+            try
             {
 
-                connection.Open();
+                string query = "SELECT senha FROM usuarios WHERE usuario = @usuario";
 
-                using(MySqlCommand cmd= new MySqlCommand(Bcd, connection))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
+                    connection.Open();
 
-                    cmd.Parameters.AddWithValue("@usuario", digita_usuario.Text);
-                    cmd.Parameters.AddWithValue("@senha", digita_senha.Password);
-
-                    int resultado = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (reader.Read()) 
-                    { 
-                    
-                    string hashBanco = ReaderWriterLock["senha"].ToString();
-                    BCryptNet.GenerateSalt();
-                    if(BCryptNet.Verify(senha, hashBanco))
-                    }
-
-                    
-                    if (resultado > 0)
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
 
-                        MessageBox.Show("Usuário logado com sucesso");
-                        digita_usuario.Text = null;
-                        digita_senha.Password = null;
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string hashBanco = reader["senha"].ToString();
+                                BCryptNet.GenerateSalt(); 
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuário ou senha não encontrados, tente denovo mais tarde");
-                        digita_usuario.Text = null;
-                        digita_senha.Password = null;
+                                if (BCryptNet.Verify(senha, hashBanco))
+                                {
+                                    MessageBox.Show($"Olá, {usuario}", "Bem-vindo", MessageBoxButton.OK, MessageBoxImage.Information);
 
+                                    digita_usuario.Clear();
+                                    digita_senha.Clear();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Usuário ou senha incorretos.", "Erro de Autenticação", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuário ou senha incorretos.", "Erro de Autenticação", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
                     }
                 }
-
             }
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao conectar ao banco de dados: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Sign_InWindow1 telaCadastro = new Sign_InWindow1();
+            telaCadastro.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            TelaInicial VoltarTelaInicial = new TelaInicial();
+            VoltarTelaInicial.Show();
+            this.Close();
         }
     }
 }

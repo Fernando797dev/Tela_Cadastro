@@ -5,25 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Sign_InWindow1" Height="450" Width="800">
     <Grid x:Name="cor_fundo">
+        <Grid.Background>
+            <ImageBrush ImageSource="/TelaCadastro.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="33*"/>
             <ColumnDefinition Width="367*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="236,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Grid.Column="1"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="236,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Grid.Column="1"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="238,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Grid.Column="1"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="digita_usuario" HorizontalAlignment="Left" Height="23" Margin="264,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" TextChanged="TextBox_TextChanged_1" Grid.Column="1"/>
-        <TextBlock Height="147" Margin="149,20,263,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Tw Cen MT" TextAlignment="Center" Grid.Column="1" FontStyle="Italic"><Run Text="&#x9;"/><LineBreak/><Run Text="TELA DE "/><Run Language="pt-br" Text="CADASTRO"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Height="147" Margin="149,0,263,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Tw Cen MT" TextAlignment="Center" Grid.Column="1" FontStyle="Italic"><Run Text="&#x9;"/><LineBreak/><Run Text="TELA DE "/><Run Language="pt-br" Text="CADASTRO"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_senha" HorizontalAlignment="Left" Height="24" Margin="264,260,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
-        <TextBlock x:Name="email" HorizontalAlignment="Left" Height="39" Margin="246,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" Grid.Column="1"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="Email"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="digita_email" HorizontalAlignment="Left" Height="23" Margin="264,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" TextChanged="TextBox_TextChanged_1" Grid.Column="1"/>
+        <TextBlock x:Name="email" HorizontalAlignment="Left" Height="39" Margin="246,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" Grid.Column="1"><Run Text="&#x9;"/><LineBreak/><Run Text="&#x9;"/><Run Text="E"/><Run Language="pt-br" Text="MAIL"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="digita_email" HorizontalAlignment="Left" Height="23" Margin="264,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" TextChanged="TextBox_TextChanged_1" Grid.Column="1"/>
         <Button x:Name="btn_login_cadastro" Content="CADASTRO" HorizontalAlignment="Left" Margin="274,384,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098" Width="72" FontFamily="Times New Roman" Grid.Column="1" Click="btn_login_cadastro_Click" Background="#FF67FF01"/>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="238,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Grid.Column="1"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="236,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" TextAlignment="Center" Grid.Column="1"><Run Text="&#x9;"/><LineBreak/><Run Text="CONFIRMAR SENHA"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="264,340,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
-        <Label Grid.Column="1" Content="Já tem uma conta?" HorizontalAlignment="Left" Height="32" Margin="523,53,0,0" VerticalAlignment="Top" Width="114" Background="#FFD8D8D8" FontWeight="Bold"/>
-        <Button Grid.Column="1" Content="LOGIN&#xD;&#xA;" HorizontalAlignment="Left" Height="24" Margin="662,57,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click" Background="#FF67FF01"/>
+        <Label Grid.Column="1" Content="Já tem uma conta?" HorizontalAlignment="Left" Height="32" Margin="523,53,0,0" VerticalAlignment="Top" Width="123" Background="#FFD8D8D8" FontWeight="Bold"/>
+        <Button Grid.Column="1" Content="LOGIN&#xD;&#xA;" HorizontalAlignment="Left" Height="28" Margin="662,57,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click" Background="#FF67FF01" FontWeight="Bold"/>
+        <CheckBox x:Name="admin" Grid.Column="1" Content="Você é um admin?" HorizontalAlignment="Left" Height="24" Margin="550,340,0,0" VerticalAlignment="Top" Width="126" Checked="CheckBox"/>
+        <Label Grid.Column="1" Content="Voltar a tela inicial &gt;&gt;" HorizontalAlignment="Left" Height="28" Margin="523,122,0,0" VerticalAlignment="Top" Width="123" Background="#FFD8D8D8" FontSize="10" FontWeight="Bold"/>
+        <Button Grid.Column="1" Content="VOLTAR" HorizontalAlignment="Left" Height="28" Margin="662,122,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click_1" FontWeight="Bold"/>
 
 
     </Grid>

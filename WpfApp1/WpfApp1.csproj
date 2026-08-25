@@ -9,8 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="TelaCadastro.png" />
+    <None Remove="TelaFundoCadastro.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     <PackageReference Include="MySql.Data" Version="26.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="TelaCadastro.png" />
+    <Resource Include="TelaFundoCadastro.png" />
   </ItemGroup>
 
 </Project>

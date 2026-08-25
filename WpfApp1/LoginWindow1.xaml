@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="LoginWindow1" Height="450" Width="800">
     <Grid x:Name="cor_fundo">
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="302,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="USUÁRIO"/><LineBreak/><Run/></TextBlock>
@@ -16,6 +17,9 @@
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="302,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" TextAlignment="Center"><Run Text="&#x9;"/><LineBreak/><Run Text="CONFIRMAR SENHA"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="330,340,0,0" VerticalAlignment="Top" Width="92"/>
         <TextBox x:Name="digita_usuario" HorizontalAlignment="Left" Height="23" Margin="330,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
+        <Button x:Name="VoltarCadastro" Content="VoltarCadastro" HorizontalAlignment="Left" Height="40" Margin="668,324,0,0" VerticalAlignment="Top" Width="87" Click="Button_Click_1"/>
+        <Label Content="Voltar a tela inicial &gt;&gt;" HorizontalAlignment="Left" Height="37" Margin="578,39,0,0" VerticalAlignment="Top" Width="114" Background="#FFD8D8D8" FontSize="10" FontWeight="Bold"/>
+        <Button Content="VOLTAR" HorizontalAlignment="Left" Height="29" Margin="712,43,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

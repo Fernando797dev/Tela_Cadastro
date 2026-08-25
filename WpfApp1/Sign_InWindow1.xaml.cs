@@ -152,7 +152,6 @@ namespace WpfApp1
 
             else
             {
-                // 1. Captura exatamente os valores dos seus componentes
                 string email = digita_email.Text.Trim();
                 string usuario = digita_usuario.Text.Trim();
                 string senha = digita_senha.Password.Trim();
@@ -164,13 +163,20 @@ namespace WpfApp1
                        
                         conexao.Open();
                         string senhaCriptografada = BCryptNet.HashPassword(senha);
-                        string query = "INSERT INTO usuarios (email, usuario, senha) VALUES (@email, @usuario, @senha)";
+                        string query = "INSERT INTO usuarios (email, usuario, senha, IsAdmin) VALUES (@email, @usuario, @senha, @IsAdmin)";
 
                         using (MySqlCommand comando = new MySqlCommand(query, conexao))
                         {
+                            bool validado = false;
+                            if (admin.IsChecked == true)
+                            {
+                                validado = true;
+                                
+                            }
                             comando.Parameters.AddWithValue("@email", email);
                             comando.Parameters.AddWithValue("@usuario", usuario);
                             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
+                            comando.Parameters.AddWithValue("@IsAdmin", validado);
 
                             comando.ExecuteNonQuery();
                         }
@@ -184,6 +190,22 @@ namespace WpfApp1
                 }
 
             }
+        }
+
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TelaInicial VoltarTelaCadastro = new TelaInicial();
+            VoltarTelaCadastro.Show();
+            this.Close();
         }
     }
 }
