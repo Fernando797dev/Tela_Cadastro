@@ -10,10 +10,10 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/TelaFundoCadastro.png"/>
+            <ImageBrush ImageSource="/Gemini_Generated_Image_cw2loecw2loecw2l.png"/>
         </Grid.Background>
         <Button x:Name="BotãoTelaCadastro" Content="Vá para a tela de cadastro" HorizontalAlignment="Center" Height="55" Margin="0,140,0,0" VerticalAlignment="Top" Width="190" Click="BotãoTelaCadastro_Click" FontWeight="Bold" FontSize="14"/>
-        <Label Content="CLIQUE ABAIXO ATÉ ONDE DESEJA IR" HorizontalAlignment="Center" Height="37" Margin="0,84,0,0" VerticalAlignment="Top" Width="288" FontWeight="Bold" FontSize="16" FontFamily="Sitka Heading Semibold"/>
+        <Label Content="CLIQUE ABAIXO ATÉ ONDE DESEJA IR" HorizontalAlignment="Center" Height="37" Margin="0,63,0,0" VerticalAlignment="Top" Width="288" FontWeight="Bold" FontSize="16" FontFamily="Sitka Heading Semibold"/>
         <Button x:Name="BotaoTelaLogin" Content="Vá até a tela de login" HorizontalAlignment="Center" Height="53" Margin="0,231,0,0" VerticalAlignment="Top" Width="190" Click="BotãoTelaLogin_Click" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Window>

@@ -29,7 +29,7 @@ namespace WpfApp1
 
             InitializeComponent();
 
-            cor_fundo.Background = System.Windows.Media.Brushes.DarkCyan;
+
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -167,22 +167,38 @@ namespace WpfApp1
 
                         using (MySqlCommand comando = new MySqlCommand(query, conexao))
                         {
-                            bool validado = false;
-                            if (admin.IsChecked == true)
-                            {
-                                validado = true;
-                                
-                            }
+                        int adminValue = (admin.IsChecked == true) ? 1 : 0; 
+
                             comando.Parameters.AddWithValue("@email", email);
                             comando.Parameters.AddWithValue("@usuario", usuario);
                             comando.Parameters.AddWithValue("@senha", senhaCriptografada);
-                            comando.Parameters.AddWithValue("@IsAdmin", validado);
+                            comando.Parameters.AddWithValue("@IsAdmin", adminValue);
 
                             comando.ExecuteNonQuery();
+                            if (adminValue == 1)
+                            {
+                              
+                                MessageBoxResult resposta = MessageBox.Show(
+                                    "Usuário de administrador cadastrado com sucesso! Deseja ir para a tela de Administrador?",
+                                    "Confirmar Navegação", MessageBoxButton.YesNo , MessageBoxImage.Question);
+
+                                if (resposta == MessageBoxResult.Yes)
+                                {
+                                    Admin telaAdmin = new Admin(); 
+                                    telaAdmin.Show();
+
+                                    this.Close(); 
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuário comum cadastrado com sucesso", "sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
                         }
                     }
 
-                    MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK);
+                    MessageBox.Show("Usuário cadastrado com sucesso", "sucesso", MessageBoxButton.OK);
                 }
                 catch (Exception)
                 {
@@ -190,15 +206,20 @@ namespace WpfApp1
                 }
 
             }
+
+            
         }
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
 
+
         }
 
-        private void CheckBox(object sender, RoutedEventArgs e)
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
+            CheckBox chk = sender as CheckBox;
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -206,6 +227,16 @@ namespace WpfApp1
             TelaInicial VoltarTelaCadastro = new TelaInicial();
             VoltarTelaCadastro.Show();
             this.Close();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

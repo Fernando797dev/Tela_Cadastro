@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Gemini_Generated_Image_cw2loecw2loecw2l.png" />
+    <None Remove="Gemini_Generated_Image_frbh1rfrbh1rfrbh.png" />
+    <None Remove="Gemini_Generated_Image_gjty7dgjty7dgjty %281%29.png" />
+    <None Remove="Gemini_Generated_Image_ivf8dmivf8dmivf8.png" />
+    <None Remove="Gemini_Generated_Image_z9ubvnz9ubvnz9ub.png" />
     <None Remove="TelaCadastro.png" />
     <None Remove="TelaFundoCadastro.png" />
   </ItemGroup>
@@ -19,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Gemini_Generated_Image_cw2loecw2loecw2l.png" />
+    <Resource Include="Gemini_Generated_Image_frbh1rfrbh1rfrbh.png" />
+    <Resource Include="Gemini_Generated_Image_gjty7dgjty7dgjty (1).png" />
+    <Resource Include="Gemini_Generated_Image_ivf8dmivf8dmivf8.png" />
+    <Resource Include="Gemini_Generated_Image_z9ubvnz9ubvnz9ub.png" />
     <Resource Include="TelaCadastro.png" />
     <Resource Include="TelaFundoCadastro.png" />
   </ItemGroup>

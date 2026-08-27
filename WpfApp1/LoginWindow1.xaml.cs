@@ -27,7 +27,7 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            cor_fundo.Background = System.Windows.Media.Brushes.CornflowerBlue;
+
         }
 
         private void btn_login_cadastro_Click(object sender, RoutedEventArgs e)
@@ -100,6 +100,11 @@ namespace WpfApp1
             TelaInicial VoltarTelaInicial = new TelaInicial();
             VoltarTelaInicial.Show();
             this.Close();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
