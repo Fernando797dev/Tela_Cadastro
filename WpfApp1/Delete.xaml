@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp1.Delete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Delete" Height="450" Width="900">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Gemini_Generated_Image_ieqkj4ieqkj4ieqk.png"/>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="220" TextWrapping="Wrap" Height="32" FontSize="10" Background="#FF22FF44" TextAlignment="Center"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email"/><Run Language="pt-br" Text=" do usuário que deseja que seja deletado"/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBox HorizontalAlignment="Center" Height="69" Margin="0,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220"/>
+
+    </Grid>
+</Window>

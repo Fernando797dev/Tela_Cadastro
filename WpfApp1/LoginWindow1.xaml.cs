@@ -35,41 +35,61 @@ namespace WpfApp1
             string usuario = digita_usuario.Text.Trim();
             string senha = digita_senha.Password.Trim();
 
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
+            {
+                MessageBox.Show("Preencha todos os campos para entrar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
-
-                string query = "SELECT senha FROM usuarios WHERE usuario = @usuario";
-
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection conexao = new MySqlConnection(connectionString))
                 {
-                    connection.Open();
+                    conexao.Open();
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    string query = "SELECT senha, IsAdmin FROM usuarios WHERE usuario = @usuario";
+
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
                     {
-                        cmd.Parameters.AddWithValue("@usuario", usuario);
+                        comando.Parameters.AddWithValue("@usuario", usuario);
 
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        using (MySqlDataReader reader = comando.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                string hashBanco = reader["senha"].ToString();
-                                BCryptNet.GenerateSalt(); 
+                                string senhaHashBanco = reader.GetString("senha");
+                                bool isAdmin = reader.GetBoolean("IsAdmin");
 
-                                if (BCryptNet.Verify(senha, hashBanco))
+                                if (BCryptNet.Verify(senha, senhaHashBanco))
                                 {
-                                    MessageBox.Show($"Olá, {usuario}", "Bem-vindo", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                                    digita_usuario.Clear();
-                                    digita_senha.Clear();
+                                    if (isAdmin)
+                                    {
+                                        Admin telaAdmin = new Admin();
+                                        telaAdmin.Show();
+                                    }
+                                    else
+                                    {
+
+                                        TelaInicial telaUser = new TelaInicial();
+                                        telaUser.Show();
+                                    }
+
+                                    this.Close(); 
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Usuário ou senha incorretos.", "Erro de Autenticação", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    digita_senha.Password = string.Empty;
+                                    digita_confirmar_senha.Password = string.Empty;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Usuário ou senha incorretos.", "Erro de Autenticação", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                                digita_senha.Password = string.Empty;
+                                digita_confirmar_senha.Password = string.Empty;
                             }
                         }
                     }
@@ -80,6 +100,7 @@ namespace WpfApp1
                 MessageBox.Show($"Erro ao conectar ao banco de dados: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

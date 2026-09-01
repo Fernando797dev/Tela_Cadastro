@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp1.Update"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Update" Height="450" Width="800">
+    <Grid Margin="-85,0,-115,-197">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Gemini_Generated_Image_crfxxcrfxxcrfxxc.png"/>
+        </Grid.Background>
+        <TextBox x:Name="Coletar" HorizontalAlignment="Left" Height="60" Margin="360,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273"/>
+        <TextBlock HorizontalAlignment="Left" Height="76" Margin="340,149,0,0" VerticalAlignment="Top" Width="313" FontSize="18" Background="#FF22FF44" TextWrapping="Wrap"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email que você deseja "/><Run Language="pt-br" Text="modificar algo"/><Run Text="  "/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</Window>

@@ -15,14 +15,13 @@
         <TextBlock Height="147" Margin="215,-6,263,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontFamily="Tw Cen MT" TextAlignment="Center" FontStyle="Italic"><Run Language="pt-br"/><LineBreak/><Run Language="pt-br" Text="TELA DE LOGIN"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_senha" HorizontalAlignment="Left" Height="24" Margin="330,195,0,0" VerticalAlignment="Top" Width="92"/>
         <Button x:Name="btn_login_cadastro" Content="ENTRAR" HorizontalAlignment="Left" Margin="342,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.098" Width="72" FontFamily="Times New Roman" Click="btn_login_cadastro_Click" Background="#FF67FF01"/>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Foreground="White"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="304,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" Foreground="White"><Run Language="pt-br" Text="&#x9;"/><LineBreak/><Run Language="pt-br" Text="&#x9;"/><Run Text="SENHA"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="304,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" TextAlignment="Center" Foreground="White"><Run Text="&#x9;"/><LineBreak/><Run Text="CONFIRMAR SENHA"/><LineBreak/><Run/></TextBlock>
         <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="330,260,0,0" VerticalAlignment="Top" Width="92"/>
         <TextBox x:Name="digita_usuario" HorizontalAlignment="Left" Height="23" Margin="330,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
         <Button x:Name="VoltarCadastro" Content="Voltar a tela cadastro" HorizontalAlignment="Left" Height="42" Margin="655,329,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_1" RenderTransformOrigin="0.213,0.528" Background="#FF495ABB"/>
         <Label Content="Voltar a tela inicial &gt;&gt;" HorizontalAlignment="Left" Height="37" Margin="578,39,0,0" VerticalAlignment="Top" Width="114" Background="#FFD8D8D8" FontSize="10" FontWeight="Bold"/>
         <Button Content="VOLTAR" HorizontalAlignment="Left" Height="29" Margin="712,43,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_2"/>
-        <CheckBox x:Name="AdminLogin" Content="Você é um admin?&#xD;&#xA;" HorizontalAlignment="Left" Height="25" Margin="304,371,0,0" VerticalAlignment="Top" Width="134" Checked="CheckBox_Checked" Background="#FFFBFBFB" BorderBrush="Red" Foreground="White" FontWeight="Bold"/>
 
     </Grid>
 </Window>

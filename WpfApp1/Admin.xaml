@@ -10,9 +10,11 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Gemini_Generated_Image_z9ubvnz9ubvnz9ub.png"/>
         </Grid.Background>
-        <DataGrid x:Name="tabelaAdmin" HorizontalAlignment="Center" Height="150" Margin="0,177,0,0" VerticalAlignment="Top" Width="492" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True" />
-        
-        <Label Content="BEM VINDO A TELA DE ADMIN!!" HorizontalAlignment="Left" Height="68" Margin="206,67,0,0" VerticalAlignment="Top" Width="440" HorizontalContentAlignment="Center" FontSize="30" Background="#FF23A400"/>
+        <DataGrid x:Name="tabelaAdmin" HorizontalAlignment="Center" Height="150" Margin="0,177,0,0" VerticalAlignment="Top" Width="492" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True" SelectionChanged="tabelaAdmin_SelectionChanged" />
+
+        <Label Content="BEM VINDO A TELA DE ADMIN!!" HorizontalAlignment="Left" Height="44" Margin="206,67,0,0" VerticalAlignment="Top" Width="440" HorizontalContentAlignment="Center" FontSize="30" Background="#FF7CD4F9" FontFamily="Sitka Heading"/>
+        <Button Content="Update" HorizontalAlignment="Left" Height="38" Margin="684,289,0,0" VerticalAlignment="Top" Width="106" Background="#FF4EFF00" Click="Button_Click_1"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Height="38" Margin="684,177,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click" Background="#FFFF9999"/>
 
     </Grid>
 </Window>

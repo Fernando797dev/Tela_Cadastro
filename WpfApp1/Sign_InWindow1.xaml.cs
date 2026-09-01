@@ -122,92 +122,92 @@ namespace WpfApp1
 
         private void btn_login_cadastro_Click(object sender, RoutedEventArgs e)
         {
-
-
-            if (digita_usuario.Text.Length < 3)
+            if (digita_usuario.Text.Trim().Length < 3)
             {
-                MessageBox.Show("Usuário cadastrado errado, usuario deve conter 3 ou mais caracteres");
-                digita_usuario.Text = null;
+                MessageBox.Show("O nome de usuário deve conter 3 ou mais caracteres.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
 
-
-            if (!new EmailAddressAttribute().IsValid(digita_email.Text))
+            if (digita_senha.Password.Length < 8)
             {
-                MessageBox.Show("Email digitado errado, digite um email valido");
-                digita_email.Text = null;
-            }
-
-
-            if (digita_confirmar_senha.Password.Length < 8)
-            {
-                MessageBox.Show("Senha digitada errado, senha deve conter 8 ou mais caracteres");
-                digita_senha.Password = null;
+                MessageBox.Show("A senha deve conter 8 ou mais caracteres.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
 
             if (digita_confirmar_senha.Password != digita_senha.Password)
             {
-                MessageBox.Show("As senhas não coincidem");
-                digita_confirmar_senha.Password = null;
+                MessageBox.Show("As senhas não coincidem.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
 
-            else
+            string email = digita_email.Text.Trim(); 
+            string usuario = digita_usuario.Text.Trim();
+            string senha = digita_senha.Password.Trim();
+
+            try
             {
-                string email = digita_email.Text.Trim();
-                string usuario = digita_usuario.Text.Trim();
-                string senha = digita_senha.Password.Trim();
-
-                try
+                using (MySqlConnection conexao = new MySqlConnection(connectionString))
                 {
-                    using (MySqlConnection conexao = new MySqlConnection(connectionString))
+                    conexao.Open();
+
+                    string queryVerificaEmail = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
+
+                    using (MySqlCommand cmdVerifica = new MySqlCommand(queryVerificaEmail, conexao))
                     {
-                       
-                        conexao.Open();
-                        string senhaCriptografada = BCryptNet.HashPassword(senha);
-                        string query = "INSERT INTO usuarios (email, usuario, senha, IsAdmin) VALUES (@email, @usuario, @senha, @IsAdmin)";
+                        cmdVerifica.Parameters.AddWithValue("@email", email);
+                        long count = Convert.ToInt64(cmdVerifica.ExecuteScalar());
 
-                        using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                        if (count > 0)
                         {
-                        int adminValue = (admin.IsChecked == true) ? 1 : 0; 
+                            MessageBoxResult resultado = MessageBox.Show( "Este e-mail já existe no banco de dados! Deseja ir para a tela de login?","E-mail já cadastrado",MessageBoxButton.YesNo,MessageBoxImage.Question
+                            );
 
-                            comando.Parameters.AddWithValue("@email", email);
-                            comando.Parameters.AddWithValue("@usuario", usuario);
-                            comando.Parameters.AddWithValue("@senha", senhaCriptografada);
-                            comando.Parameters.AddWithValue("@IsAdmin", adminValue);
-
-                            comando.ExecuteNonQuery();
-                            if (adminValue == 1)
+                            if (resultado == MessageBoxResult.Yes)
                             {
-                              
-                                MessageBoxResult resposta = MessageBox.Show(
-                                    "Usuário de administrador cadastrado com sucesso! Deseja ir para a tela de Administrador?",
-                                    "Confirmar Navegação", MessageBoxButton.YesNo , MessageBoxImage.Question);
-
-                                if (resposta == MessageBoxResult.Yes)
-                                {
-                                    Admin telaAdmin = new Admin(); 
-                                    telaAdmin.Show();
-
-                                    this.Close(); 
-                                }
-
+                                LoginWindow1 telaLogin = new LoginWindow1();
+                                telaLogin.Show();
+                                this.Close(); 
                             }
-                            else
-                            {
-                                MessageBox.Show("Usuário comum cadastrado com sucesso", "sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
+
+                            return; 
                         }
                     }
 
-                    MessageBox.Show("Usuário cadastrado com sucesso", "sucesso", MessageBoxButton.OK);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                    string senhaCriptografada = BCryptNet.HashPassword(senha);
+                    string queryInsert = "INSERT INTO usuarios (email, usuario, senha, IsAdmin) VALUES (@email, @usuario, @senha, @IsAdmin)";
 
+                    using (MySqlCommand comando = new MySqlCommand(queryInsert, conexao))
+                    {
+                        int adminValue = admin.IsChecked.GetValueOrDefault() ? 1 : 0;
+
+                        comando.Parameters.AddWithValue("@email", email);
+                        comando.Parameters.AddWithValue("@usuario", usuario);
+                        comando.Parameters.AddWithValue("@senha", senhaCriptografada);
+                        comando.Parameters.AddWithValue("@IsAdmin", adminValue);
+
+                        comando.ExecuteNonQuery();
+
+                        MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        if (adminValue == 1)
+                        {
+                            Admin telaAdmin = new Admin();
+                            telaAdmin.Show();
+                        }
+                        else
+                        {
+                            LoginWindow1 telaLogin = new LoginWindow1();
+                            telaLogin.Show();
+                        }
+
+                        this.Close();
+                    }
+                }
             }
-
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao processar cadastro: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)

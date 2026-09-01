@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Lógica interna para Admin.xaml
-    /// </summary>
+
     public partial class Admin : Window
     {
         public string conexao = "Server=localhost;Database=login;Uid=root;Pwd=;";
@@ -56,12 +54,32 @@ namespace WpfApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Erro",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                MessageBox.Show(ex.Message,"Erro", MessageBoxButton.OK,MessageBoxImage.Error);
             }
+        }
+
+        private void tabelaAdmin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Irdelete(object sender, RoutedEventArgs e)
+        {
+            Delete IrtelaDelete = new Delete();
+            IrtelaDelete.Show();
+            this.Close();
+        }
+
+        private void Button_Click_IrUpdate(object sender, RoutedEventArgs e)
+        {
+            Update IrTelaUpdate = new Update();
+            IrTelaUpdate.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

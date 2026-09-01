@@ -27,7 +27,7 @@
         <PasswordBox x:Name="digita_confirmar_senha" HorizontalAlignment="Left" Height="24" Margin="264,277,0,0" VerticalAlignment="Top" Width="92" Grid.Column="1"/>
         <Label Grid.Column="1" Content="Já tem uma conta?" HorizontalAlignment="Left" Height="32" Margin="523,53,0,0" VerticalAlignment="Top" Width="123" Background="#FFD8D8D8" FontWeight="Bold"/>
         <Button Grid.Column="1" Content="LOGIN&#xD;&#xA;" HorizontalAlignment="Left" Height="28" Margin="662,57,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click" Background="#FF67FF01" FontWeight="Bold"/>
-        <CheckBox x:Name="admin" Grid.Column="1" Content="Você é um admin?" HorizontalAlignment="Left" Height="24" Margin="550,340,0,0" VerticalAlignment="Top" Width="126" Checked="CheckBox" Foreground="Black" Background="#FFFF0F0F" FontWeight="Bold" FontSize="18"/>
+        <CheckBox x:Name="admin" Content="Você é um admin?" HorizontalAlignment="Left" Height="28" Margin="18,31,0,0" VerticalAlignment="Top" Width="215" Checked="CheckBox" Foreground="Black" Background="#FFFF0F0F" FontWeight="Bold" FontSize="18" Grid.ColumnSpan="2"/>
         <Label Grid.Column="1" Content="Voltar a tela inicial &gt;&gt;" HorizontalAlignment="Left" Height="28" Margin="523,122,0,0" VerticalAlignment="Top" Width="123" Background="#FFD8D8D8" FontSize="10" FontWeight="Bold"/>
         <Button Grid.Column="1" Content="VOLTAR" HorizontalAlignment="Left" Height="28" Margin="662,122,0,0" VerticalAlignment="Top" Width="54" Click="Button_Click_1" FontWeight="Bold"/>
 
