@@ -10,8 +10,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Gemini_Generated_Image_crfxxcrfxxcrfxxc.png"/>
         </Grid.Background>
-        <TextBox x:Name="Coletar" HorizontalAlignment="Left" Height="60" Margin="360,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273"/>
-        <TextBlock HorizontalAlignment="Left" Height="76" Margin="340,149,0,0" VerticalAlignment="Top" Width="313" FontSize="18" Background="#FF22FF44" TextWrapping="Wrap"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email que você deseja "/><Run Language="pt-br" Text="modificar algo"/><Run Text="  "/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="Coletar" HorizontalAlignment="Left" Height="97" Margin="360,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" TextChanged="Coletar_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Height="76" Margin="340,149,0,0" VerticalAlignment="Top" Width="313" FontSize="18" Background="#FF22FF44" TextWrapping="Wrap" TextAlignment="Center"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email que você deseja "/><Run Language="pt-br" Text="modificar algo"/><Run Text="  "/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="ConfirmarUpdate" Content="Update" HorizontalAlignment="Center" Height="46" Margin="0,348,0,0" VerticalAlignment="Top" Width="152" Background="#FF00FF1B"/>
 
     </Grid>
 </Window>

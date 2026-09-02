@@ -10,8 +10,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Gemini_Generated_Image_ieqkj4ieqkj4ieqk.png"/>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Width="220" TextWrapping="Wrap" Height="32" FontSize="10" Background="#FF22FF44" TextAlignment="Center"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email"/><Run Language="pt-br" Text=" do usuário que deseja que seja deletado"/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-        <TextBox HorizontalAlignment="Center" Height="69" Margin="0,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="308" TextWrapping="Wrap" Height="25" FontSize="11" Background="#FF22FF44" TextAlignment="Center"><Run Text="Digite"/><Run Text=" abaixo"/><Run Text=" o email"/><Run Language="pt-br" Text=" do usuário que deseja que seja deletado"/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="DeleteEmail" HorizontalAlignment="Center" Height="83" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="220" TextChanged="DeleteEmail_TextChanged"/>
+        <Button x:Name="ConfirmarDelete" Content="DELETE" HorizontalAlignment="Center" Height="31" Margin="0,281,0,0" VerticalAlignment="Top" Width="96" Background="#FFFF7C7C" Click="ConfirmarDelete_Click"/>
 
     </Grid>
 </Window>

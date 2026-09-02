@@ -21,5 +21,10 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Coletar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

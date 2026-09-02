@@ -63,23 +63,20 @@ namespace WpfApp1
 
         }
 
-        private void Button_Click_Irdelete(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Delete IrtelaDelete = new Delete();
-            IrtelaDelete.Show();
-            this.Close();
-        }
 
-        private void Button_Click_IrUpdate(object sender, RoutedEventArgs e)
-        {
+
             Update IrTelaUpdate = new Update();
             IrTelaUpdate.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Delete IrtelaDelete = new Delete();
+            IrtelaDelete.Show();
+            this.Close();
         }
     }
 }
