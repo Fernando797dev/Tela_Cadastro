@@ -43,25 +43,36 @@ namespace WpfApp1
             {
 
                 string queryverNoBanco = "SELECT COUNT(*) FROM usuarios WHERE email = @email";
-                string queryDeleta = "DELECT FROM usuarios WHERE email = @email";
+                string queryDeleta = "DELETE FROM usuarios WHERE email = @email";
 
                 using (MySqlConnection conexao = new MySqlConnection(connectionsString)) {
 
                     conexao.Open();
-                    using var cmdExiste = new MySqlCommand(queryverNoBanco, conexao);
-                    cmdExiste.Parameters.AddWithValue("@email", EmailDelete);
-                    try
-                    {
-                        using var reader = cmdExiste.ExecuteReader();
 
-                        if (reader.Read())
-                        {
-                            using var deleteEmail = new MySqlCommand(queryDeleta, conexao);
-                            deleteEmail.Parameters.AddWithValue("@email",EmailDelete);
-                        }
+
+                   using (var cmdExiste = new MySqlCommand(queryverNoBanco, conexao))
+                    {
+
+                        cmdExiste.Parameters.AddWithValue("@email", EmailDelete);
+                        long quantidade = Convert.ToInt64(cmdExiste.ExecuteScalar());
+
+                            if(quantidade == 0)
+                            {
+
+                                MessageBox.Show("Erro! O usuário não foi encontrado");
+                                DeleteEmail.Clear();
+                                return;
+                            }
                     }
-                    catch{
-                        MessageBox.Show("Erro! O email não foi encontrado");
+
+                   using (var DeletarEmail = new MySqlCommand(queryDeleta, conexao)) {
+
+                        DeletarEmail.Parameters.AddWithValue("@email", EmailDelete);
+                        DeletarEmail.ExecuteNonQuery();
+
+                        DeleteEmail.Clear();
+                        MessageBox.Show("Usuário Deletado com sucesso!!");
+
                     }
 
 
@@ -72,6 +83,11 @@ namespace WpfApp1
         }
 
         private void DeleteEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void DeleteEmail_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }
