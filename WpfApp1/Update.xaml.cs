@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Update : Window
     {
+        string connectionString = "Server=localhost;Database = login;Uid = root;Pwd=;";
         public Update()
         {
             InitializeComponent();
@@ -25,6 +27,16 @@ namespace WpfApp1
         private void Coletar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void ConfirmarUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            using(MySqlConnection conexao = new MySqlConnection(conexao))
+            {
+
+                conexao.Open();
+                string query = "SELECT "
+            }
         }
     }
 }

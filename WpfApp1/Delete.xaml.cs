@@ -73,6 +73,10 @@ namespace WpfApp1
                         DeleteEmail.Clear();
                         MessageBox.Show("Usuário Deletado com sucesso!!");
 
+                        Admin IrTelaAdmin = new Admin();
+                        IrTelaAdmin.Show();
+                        this.Close();
+
                     }
 
 
